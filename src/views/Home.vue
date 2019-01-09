@@ -1,18 +1,39 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div class="home-wrapper">
+        <!--swipe area-->
+        <div class="swipe-area">
+            <van-swipe :autoplay="2000">
+
+            </van-swipe>
+        </div>
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+    import axios from 'axios'
+    import serviceApi from '../common/serviceApi'
 
-export default {
-  name: "home",
-  components: {
-    HelloWorld
-  }
-};
+    export default {
+        name: "Home",
+        components: {},
+        created() {
+            this.getBannerData()
+        },
+        methods: {
+            getBannerData() {
+                axios({
+                    url: serviceApi.getBanner,
+                    method: 'get'
+                }).then(res=>{
+                    console.log(res)
+                }).catch(error=>{
+
+                })
+            }
+        }
+    };
 </script>
+
+<style lang="stylus" scoped>
+
+</style>

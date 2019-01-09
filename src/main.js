@@ -2,10 +2,9 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import axios from 'axios'
-import {Button} from "vant";
+import {Button, Tabbar, TabbarItem,Swipe, SwipeItem} from "vant";
 
-Vue.use(Button);
+Vue.use(Button).use(Tabbar).use(TabbarItem).use(Swipe).use(SwipeItem);
 
 Vue.config.productionTip = false;
 
